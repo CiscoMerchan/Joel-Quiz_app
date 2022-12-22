@@ -21,6 +21,13 @@ const _playagainBtn = document.getElementById("play-again");
 let correctAnswer = "",correctScore = askedCount = 0, totalQuestion = 10;
 
 const _result = document.getElementById('result');
+
+// AUDIO
+var random_sd = Math.floor(Math.random()* 7 );
+const _audio_correct_answer = new Audio('sounds/sound_correct_answer/mixkit-arcade-game-opener-222.mp3');
+const _audio_incorrect_answer = new Audio('sounds/sound_incorrect_answer/mixkit-'+random_sd+'.mp3');
+
+// ***********
 // EVENT LISTENER
  // check answer buttonlistener
  function eventListeners(){
@@ -102,12 +109,17 @@ function checkAnswer(){
     let selectedAnswer = _options.querySelector('.selected span').textContent;
     if(selectedAnswer.trim() == HTMLDecode(correctAnswer)){
       correctScore++;
+      console.log(this);
+      _audio_correct_answer.play();
       result.innerHTML = `<p> <i class = "fas fa-check"></i> GOOD, GOOD! Keep
       going Joel!</p>`;
     }else {
-      result.innerHTML = `<p> <i class = "fas fa-times"></i>WRONG!!!!
-      WRONG!! This is why nobody listen to you at home!!</p> <p> <small><b>correct Answer:
+      console.log(n_sd);
+      _audio_incorrect_answer.play();
+      result.innerHTML = `<p> <i class = "fas fa-times"></i><!-- WRONG!!!!
+      WRONG!! This is why nobody listen to you at home!--></p> <p> <small><b>correct Answer:
        </b> ${correctAnswer}</small></p>`;
+
     }
     checkCount();
   } else {
