@@ -23,7 +23,7 @@ let correctAnswer = "",correctScore = askedCount = 0, totalQuestion = 10;
 const _result = document.getElementById('result');
 
 // AUDIO
-var random_yes_sound = Math.floor(Math.random()* 3 );
+var random_yes_sound = Math.floor((Math.random()* 2)+1 );
 var random_sd = Math.floor(Math.random()* 7 );
 const _audio_correct_answer = new Audio('sounds/sound_correct_answer/yes-'+
 random_yes_sound+'.mp3');
