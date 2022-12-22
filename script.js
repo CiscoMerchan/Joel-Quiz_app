@@ -23,8 +23,10 @@ let correctAnswer = "",correctScore = askedCount = 0, totalQuestion = 10;
 const _result = document.getElementById('result');
 
 // AUDIO
+var random_yes_sound = Math.floor(Math.random()* 3 );
 var random_sd = Math.floor(Math.random()* 7 );
-const _audio_correct_answer = new Audio('sounds/sound_correct_answer/mixkit-arcade-game-opener-222.mp3');
+const _audio_correct_answer = new Audio('sounds/sound_correct_answer/yes-'+
+random_yes_sound+'.mp3');
 const _audio_incorrect_answer = new Audio('sounds/sound_incorrect_answer/mixkit-'+random_sd+'.mp3');
 
 // ***********
@@ -68,6 +70,7 @@ async function loadQuestion(){
   // console.log(data.results[0]);
   showQuestion(data.results[0]);
   console.log(_result_categoryID+"category id");
+  console.log(random_yes_sound+"number");
 
 }
 
