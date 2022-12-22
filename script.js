@@ -28,6 +28,11 @@ const _audio_correct_answer = new Audio('sounds/sound_correct_answer/mixkit-arca
 const _audio_incorrect_answer = new Audio('sounds/sound_incorrect_answer/mixkit-'+random_sd+'.mp3');
 
 // ***********
+// List of categories id from opendb.com
+const random_categoriesID = [9, 17, 20, 21, 22, 23, 24, 27, 28, 30]
+// const _result_categoryID = random_categoriesID[Math.floor(Math.random()*
+// random_categoriesID.length)];
+
 // EVENT LISTENER
  // check answer buttonlistener
  function eventListeners(){
@@ -51,13 +56,19 @@ document.addEventListener('DOMContentLoaded', () =>{
 // loadQuestion function is a fucntion to treat the trivia API
  // the result from the API are in JSON format.
 async function loadQuestion(){
-  const APIUrl = 'https://opentdb.com/api.php?amount=1&difficulty=medium&type=multiple';
+  // random Category from the list random_categoriesID
+  const _result_categoryID = random_categoriesID[Math.floor(Math.random()*
+  random_categoriesID.length)];
+  const APIUrl = 'https://opentdb.com/api.php?amount=1&category='+
+  _result_categoryID+'&difficulty=medium&type=multiple';
   const result = await fetch(APIUrl);
   //  data = the result of the query API are on JSON format.
   const data = await result.json();
   _result.innerHTML = "";
   // console.log(data.results[0]);
   showQuestion(data.results[0]);
+  console.log(_result_categoryID+"category id");
+
 }
 
 // Display question and options
@@ -114,7 +125,7 @@ function checkAnswer(){
       result.innerHTML = `<p> <i class = "fas fa-check"></i> GOOD, GOOD! Keep
       going Joel!</p>`;
     }else {
-      console.log(random_sd);
+      console.log(random_sd+ " sound id");
       _audio_incorrect_answer.play();
       result.innerHTML = `<p> <i class = "fas fa-times"></i><!-- WRONG!!!!
       WRONG!! This is why nobody listen to you at home!--></p> <p> <small><b>correct Answer:
