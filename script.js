@@ -114,7 +114,7 @@ function checkAnswer(){
       result.innerHTML = `<p> <i class = "fas fa-check"></i> GOOD, GOOD! Keep
       going Joel!</p>`;
     }else {
-      console.log(n_sd);
+      console.log(random_sd);
       _audio_incorrect_answer.play();
       result.innerHTML = `<p> <i class = "fas fa-times"></i><!-- WRONG!!!!
       WRONG!! This is why nobody listen to you at home!--></p> <p> <small><b>correct Answer:
