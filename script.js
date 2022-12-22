@@ -62,7 +62,7 @@ async function loadQuestion(){
   const _result_categoryID = random_categoriesID[Math.floor(Math.random()*
   random_categoriesID.length)];
   const APIUrl = 'https://opentdb.com/api.php?amount=1&category='+
-  _result_categoryID+'&difficulty=medium&type=multiple';
+  _result_categoryID+'&difficulty=easy&type=multiple';
   const result = await fetch(APIUrl);
   //  data = the result of the query API are on JSON format.
   const data = await result.json();
